@@ -1,11 +1,12 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        int first = findLast(nums, target); 
-        int last = findFirst(nums, target); 
+        int first = findFirst(nums, target); 
+        int last = findLast(nums, target); 
 
         return {first, last};
     }
@@ -15,7 +16,7 @@ private:
         int low = 0, high = nums.size() - 1;
         int ans = -1;
 
-        while (low < high) { 
+        while (low <= high) { 
             int mid = low + (high - low) / 2;
 
             if (nums[mid] == target) {
@@ -42,7 +43,7 @@ private:
 
             if (nums[mid] == target) {
                 ans = mid;
-                high = mid - 1; 
+                low = mid + 1;
             }
             else if (nums[mid] < target) {
                 low = mid + 1;
