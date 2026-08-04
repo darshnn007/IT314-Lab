@@ -60,7 +60,7 @@ private:
 int main() {
     Solution sol;
 
-    vector<int> nums = {5,7,7,8,8,10};
+    vector<int> nums = {5,7,7,8,8,9,10};
     int target = 8;
 
     vector<int> ans = sol.searchRange(nums, target);
